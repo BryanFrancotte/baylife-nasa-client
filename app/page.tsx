@@ -50,6 +50,7 @@ export default function Home() {
             Read our docs
           </a>
         </div>
+        <iframe src="https://docs.google.com/document/d/107VkRAcKHIXgShM1hOfL938KOpDkf0Or/edit?usp=sharing&ouid=103994849071133278763&rtpof=true&sd=true" height="600px" width="900px"></iframe>
       </main>
       <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
         <a

@@ -136,6 +136,7 @@
   --font-sans: var(--font-sans);
   --font-mono: var(--font-mono);
   --font-serif: var(--font-serif);
+  --font-nasa: "Nasa";
 
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -158,5 +159,10 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+  @font-face {
+    font-family: Nasa;
+    font-style: normal;
+    src: url("/fonts/Nasalization.otf") format("otf");
   }
 }
