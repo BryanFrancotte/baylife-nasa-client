@@ -33,7 +33,7 @@ const NavMain = ({
 }) => {
   return (
     <SidebarGroup>
-      <SidebarGroupLabel>Platform</SidebarGroupLabel>
+      <SidebarGroupLabel>Gestion</SidebarGroupLabel> {/* TODO: make this dynamic */}
       <SidebarMenu>
         {navItems.map((item) => (
           <Collapsible

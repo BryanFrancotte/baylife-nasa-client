@@ -1,11 +1,27 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarRail } from "../shadcn/components/ui/sidebar";
+import * as React from "react";
+import {
+  Sidebar,
+  SidebarContent,
+  SidebarFooter,
+  SidebarHeader,
+  SidebarRail,
+} from "../shadcn/components/ui/sidebar";
 import VersionSwitcher from "./version-switcher";
 import NavMain from "./nav-main";
 import NavUser from "./nav-user";
-import { BookOpen, Bot, Settings2, SquareTerminal } from "lucide-react";
+import {
+  BadgeDollarSign,
+  Banknote,
+  BookOpen,
+  Calendar,
+  Car,
+  LayoutDashboard,
+  PencilRuler,
+  Users,
+} from "lucide-react";
+import NavTools from "./nav-tools";
 
 const data = {
   user: {
@@ -16,53 +32,90 @@ const data = {
   versions: [
     {
       name: "pre-alpha",
-      logo:"/logo/nasa.svg"
+      logo: "/logo/nasa.svg",
     },
     {
       name: "alpha",
-      logo: "/logo/nasa-axiom-logo.svg"
+      logo: "/logo/nasa-axiom-logo.svg",
     },
     {
       name: "pre-beta",
-      logo: "/logo/nasa-odyssey-logo.svg"
-    }
+      logo: "/logo/nasa-odyssey-logo.svg",
+    },
   ],
   navMain: [
     {
-      title: "Playground",
+      title: "Dashboard",
       url: "#",
-      icon: SquareTerminal,
-      isActive: true,
+      icon: LayoutDashboard,
       items: [
         {
-          title: "History",
+          title: "Overview",
+          url: "/dashboard",
+        },
+        {
+          title: "Finance",
           url: "#",
         },
         {
-          title: "Starred",
-          url: "#",
-        },
-        {
-          title: "Settings",
+          title: "Logistique",
           url: "#",
         },
       ],
     },
     {
-      title: "Models",
+      title: "Employees",
       url: "#",
-      icon: Bot,
+      icon: Users,
       items: [
         {
-          title: "Genesis",
+          title: "Liste",
+          url: "/employees",
+        },
+        {
+          title: "Roles",
+          url: "/employees/roles",
+        },
+        {
+          title: "Suivi",
+          url: "#",
+        },
+      ],
+    },
+    {
+      title: "Agenda",
+      url: "#",
+      icon: Calendar,
+      items: [
+        {
+          title: "Voyage",
           url: "#",
         },
         {
-          title: "Explorer",
+          title: "Events",
+          url: "#",
+        },
+      ],
+    },
+    {
+      title: "Flotte",
+      url: "#",
+      icon: Car,
+      items: [
+        {
+          title: "Liste",
+          url: "/fleet",
+        },
+        {
+          title: "Suivit",
           url: "#",
         },
         {
-          title: "Quantum",
+          title: "Entretien",
+          url: "#",
+        },
+        {
+          title: "Attribution",
           url: "#",
         },
       ],
@@ -77,60 +130,58 @@ const data = {
           url: "#",
         },
         {
-          title: "Get Started",
+          title: "Pôle Voyage",
           url: "#",
         },
         {
-          title: "Tutorials",
+          title: "Pôle Events & Commercial",
           url: "#",
         },
         {
-          title: "Changelog",
+          title: "Pôle Logistique",
           url: "#",
         },
       ],
     },
+  ],
+  navTools: [
     {
-      title: "Settings",
+      name: "Calculatrice Bilan Financier",
       url: "#",
-      icon: Settings2,
-      items: [
-        {
-          title: "General",
-          url: "#",
-        },
-        {
-          title: "Team",
-          url: "#",
-        },
-        {
-          title: "Billing",
-          url: "#",
-        },
-        {
-          title: "Limits",
-          url: "#",
-        },
-      ],
-    }
-  ]
-}
+      icon: BadgeDollarSign,
+    },
+    {
+      name: "Calculatrice Primes",
+      url: "#",
+      icon: Banknote,
+    },
+    {
+      name: "Calculatrice Stock Nasa",
+      url: "#",
+      icon: PencilRuler,
+    },
+  ],
+};
 
 const AppSidebar = ({ ...props }: React.ComponentProps<typeof Sidebar>) => {
   return (
     <Sidebar collapsible="icon" {...props}>
       <SidebarHeader>
-        <VersionSwitcher versions={data.versions} defaultVersion={data.versions[0]}/>
+        <VersionSwitcher
+          versions={data.versions}
+          defaultVersion={data.versions[0]}
+        />
       </SidebarHeader>
       <SidebarContent>
         <NavMain navItems={data.navMain} />
+        <NavTools toolsItems={data.navTools} />
       </SidebarContent>
       <SidebarFooter>
         <NavUser user={data.user} />
       </SidebarFooter>
       <SidebarRail />
     </Sidebar>
-  )
-}
+  );
+};
 
 export default AppSidebar;
