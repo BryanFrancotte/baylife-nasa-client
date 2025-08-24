@@ -16,6 +16,7 @@ import { Button } from "../modules/shared/shadcn/components/ui/button";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
+import SplashCursor from "../modules/Home/components/splash-cursor";
 
 const HomePage = () => {
   const containerVariants = {
@@ -47,6 +48,7 @@ const HomePage = () => {
           speed={0.2}
           rotationSpeed={0.05}
         />
+        <SplashCursor />
       </div>
       <div className="relative z-10">
         {/* Header avec toggle de thème */}
