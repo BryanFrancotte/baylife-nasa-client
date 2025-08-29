@@ -39,7 +39,7 @@ export default function AppPagesLayout({
       <AppSidebar />
       <SidebarInset>
         <header
-          className={`px-4 sticky top-0 flex h-16 shrink-0 items-center justify-between gap-2 transition-all duration-200 ease-linear group-has-data-[collapsible=icon]/sidebar-wrapper:h-12 ${
+          className={`px-4 sticky top-0 flex justify-between h-16 shrink-0 items-center gap-2 transition-all duration-200 ease-linear group-has-data-[collapsible=icon]/sidebar-wrapper:h-12 ${
             isScrolled ? "border-b shadow-sm bg-background/60" : ""
           }`}
         >
