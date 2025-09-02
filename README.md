@@ -1,3 +1,7 @@
+![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)
+![Non-Commercial](https://img.shields.io/badge/Use-Non--Commercial-red)
+![Fork Friendly](https://img.shields.io/badge/Fork-Friendly-green)
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
