@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import axios from "axios";
 
-import config from "@/app/conifg";
+import apiClient from "@/lib/api/client";
 import { HttpService } from "../models/http-service.model";
 
 type Method = "post" | "get" | "delete" | "put" | "patch" | "head";
@@ -24,12 +24,14 @@ const request = (
 ): Promise<any> => {
   const header = createHeaders(additionalHeaders);
   return new Promise((resolve, reject) =>
-    config(`${endpoint}`, {
-      method,
-      data: body,
-      headers: header,
-      ...additionalConfig,
-    })
+    apiClient
+      .request({
+        url: `${endpoint}`,
+        method,
+        data: body,
+        headers: header,
+        ...additionalConfig,
+      })
       .then((response) => {
         resolve(response.data);
       })
@@ -65,14 +67,16 @@ const httpService: HttpService = {
     exec(url, "patch", body, { "Content-Type": "application/json-patch+json" }),
   postMultipart: (url, formData, additionalConfig) => {
     return new Promise((resolve, reject) =>
-      config(`${url}`, {
-        method: "post",
-        data: formData,
-        headers: {
-          ...additionalConfig?.headers,
-        },
-        ...additionalConfig,
-      })
+      apiClient
+        .request({
+          url: `${url}`,
+          method: "post",
+          data: formData,
+          headers: {
+            ...additionalConfig?.headers,
+          },
+          ...additionalConfig,
+        })
         .then((response) => {
           resolve(response.data);
         })
