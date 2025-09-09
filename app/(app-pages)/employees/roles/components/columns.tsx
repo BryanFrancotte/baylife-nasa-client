@@ -6,7 +6,7 @@ export type Role = {
   id: string;
   order: number;
   name: string;
-  permission: "Admin" | "Coordinator" | "Manager" | "Employee" | "Consultant";
+  permission: string;
   percentage: number;
 };
 

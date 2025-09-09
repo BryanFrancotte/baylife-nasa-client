@@ -2,9 +2,10 @@ import { ColumnDef } from "@tanstack/react-table";
 
 export type Car = {
   id: string;
-  brand: string;
-  model: string;
+  order: number;
+  vehicleType: string;
   plate: string;
+  mileage: number;
   seating: number;
   storage: number;
   location: string;
@@ -12,16 +13,16 @@ export type Car = {
 
 export const columns: ColumnDef<Car>[] = [
   {
-    accessorKey: "brand",
-    header: "Marque"
-  },
-  {
-    accessorKey: "model",
+    accessorKey: "vehicleType",
     header: "Model"
   },
   {
     accessorKey: "plate",
     header: "Immatriculation"
+  },
+  {
+    accessorKey: "mileage",
+    header: "Kilometrage"
   },
   {
     accessorKey: "seating",
